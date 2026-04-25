@@ -1,0 +1,16 @@
+# Gradle
+.gradle/
+build/
+
+# IDE files
+.vscode/
+bin/
+out/
+
+# Android build outputs
+AndroidApp/build/
+AndroidApp/.gradle/
+
+# Temporary and test files
+*.bin
+*.log

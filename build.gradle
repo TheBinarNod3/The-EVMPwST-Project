@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.evmpwst'
+version = '2.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JSON serialization for MessagePacket wire format
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // JUnit 5 test framework
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+application {
+    mainClass = 'evmpwst.GuiApp'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'evmpwst.GuiApp'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+sourceSets {
+    main {
+        java { srcDirs = ['src/main/java'] }
+    }
+    test {
+        java { srcDirs = ['src/test/java'] }
+    }
+}
