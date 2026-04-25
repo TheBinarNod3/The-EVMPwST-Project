@@ -31,5 +31,7 @@ In this case, the recipient starts the "conversation" by clicking the **"Start R
 
 *The project is not intended to support any illegal activities or other illegal activities.*
 
+*Please, people, report bugs and I will fix them, ask questions and I will answer them, I am here to help you.*
+
 *The project is open-source; anyone can modify it and share it, providing a visible link to the main repository in the description. Please contact me before publishing a fork.*
 
